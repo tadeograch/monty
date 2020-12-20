@@ -1,12 +1,18 @@
+#include <string.h>
+#include <stdio.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <stdlib.h>
+#include <unistd.h>
 #include "monty.h"
 
 char **get_bytecode(char *filename)
 {
-	int count = 0;
+	int count;
 	int fd;
 	char *buffer;
-	char **code; /* variable for the splited buffer*/
-	size_t count_r;
+	char **splited_code; /* variable for the splited buffer*/
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
@@ -14,18 +20,15 @@ char **get_bytecode(char *filename)
 		printf("Error: Can't open file %s\n", filename);
 		exit(EXIT_FAILURE);
 	}
-	for (c = getc(fp); c != EOF; c = getc(fp)) /*Count the number of characters in the textfile*/
-	{
-		count = count + 1;
-	}
+	count = file_char_count(filename);
 	buffer = malloc(sizeof(char) * count);
 	if (buffer == NULL)
 	{
 		printf("Error: malloc failed");
 		exit(EXIT_FAILURE);
 	}
-	count_r = read(fd, buffer, count);
+	read(fd, buffer, count);
 	close(fd);
-	code = split_buffer(buffer, count);
-	return (code);
+	splited_code = split_buffer(buffer, count);
+	return (splited_code);
 }
