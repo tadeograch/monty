@@ -14,6 +14,7 @@ void analize(stack_t **stack)
 	instruction_t type[] = {
 				{"push", push_func},
 				{"pall", pall_func},
+				{"pint", pint_func},
 				{NULL, NULL}
 	};
 	(void)stack;
@@ -33,4 +34,5 @@ void analize(stack_t **stack)
 			exit(EXIT_FAILURE);
 		}
 	}
+	free(code);
 }

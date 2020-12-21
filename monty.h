@@ -41,5 +41,6 @@ void pall_func(stack_t **stack, unsigned int line_number);
 unsigned int print_dlistint(const stack_t *h);/*Aux function*/
 unsigned int _strlen(char *s); /*Aux function*/
 int compare(char *str1, char *str2);
+void pint_func(stack_t **stack, unsigned int line_number);
 
 #endif

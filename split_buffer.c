@@ -26,7 +26,6 @@ char **split_buffer(char *buffer, int buffsize)
 		i++;
 		token = strtok(NULL, "\n");
 	}
-	free(token);
 	tokens[i] = NULL;
 	return (tokens);
 }
