@@ -42,5 +42,10 @@ unsigned int print_dlistint(const stack_t *h);/*Aux function*/
 unsigned int _strlen(char *s); /*Aux function*/
 int compare(char *str1, char *str2);
 void pint_func(stack_t **stack, unsigned int line_number);
-
+void pop_func(stack_t **stack, unsigned int line_number);
+unsigned int dlistint_len(const stack_t *h);
+void swap_func(stack_t **stack, unsigned int line_number);
+void add_func(stack_t **stack, unsigned int line_number);
+void nop_func(stack_t **stack, unsigned int line_number);
+void free_dlistint(stack_t *head);
 #endif

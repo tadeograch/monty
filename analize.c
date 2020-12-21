@@ -15,6 +15,10 @@ void analize(stack_t **stack)
 				{"push", push_func},
 				{"pall", pall_func},
 				{"pint", pint_func},
+				{"pop", pop_func},
+				{"swap", swap_func},
+				{"add", add_func},
+				{"nop", nop_func},
 				{NULL, NULL}
 	};
 	(void)stack;
@@ -34,5 +38,4 @@ void analize(stack_t **stack)
 			exit(EXIT_FAILURE);
 		}
 	}
-	free(code);
 }

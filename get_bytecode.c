@@ -15,8 +15,8 @@ char **get_bytecode(char *filename)
 {
 	int count;
 	int fd;
-	char *buffer;
-	char **splited_code; /* variable for the splited buffer*/
+	char *buffer = NULL;
+	char **splited_code = NULL; /* variable for the splited buffer*/
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
@@ -32,6 +32,7 @@ char **get_bytecode(char *filename)
 		exit(EXIT_FAILURE);
 	}
 	read(fd, buffer, count);
+	printf("buffer: %s\n", buffer);
 	close(fd);
 	splited_code = split_buffer(buffer, count);
 	return (splited_code);

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "monty.h"
 
 /**
@@ -36,4 +37,43 @@ unsigned int _strlen(char *s)
 		len++;
 	}
 	return (len);
+}
+
+/**
+ * dlistint_len - returns the number of elements in a linked list
+ * @h: pointer to the head of the list
+ *
+ * Return: the number of nodes.
+ */
+unsigned int dlistint_len(const stack_t *h)
+{
+	unsigned int n = 0;
+
+	if (h == NULL)
+	{
+		return (0);
+	}
+	while (h != NULL)
+	{
+		n++;
+		h = h->next;
+	}
+	return (n);
+}
+
+/**
+ * free_dlistint - frees the list.
+ * @head: head of the list
+ * Return: nothing
+ */
+void free_dlistint(stack_t *head)
+{
+	stack_t *aux;
+
+	while (head != NULL)
+	{
+		aux = head;
+		head = head->next;
+		free(aux);
+	}
 }

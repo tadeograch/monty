@@ -18,6 +18,7 @@ int main(int argc, char **argv)
 	}
 	code = get_bytecode(argv[1]);
 	analize(&stack);
-
+	free(code);
+	free_dlistint(stack);
 	return (0);
 }

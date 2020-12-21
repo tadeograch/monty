@@ -10,12 +10,14 @@
 */
 char **split_buffer(char *buffer, int buffsize)
 {
-	char **tokens = malloc(buffsize * sizeof(char *));
-	char *token;
+	char **tokens = NULL;
+	char *token = NULL;
 	int i = 0;
 
-	if (tokens == NULL)
+	tokens = malloc(sizeof(char *) * buffsize);
+	if (!tokens)
 	{
+		free(tokens);
 		printf("Error: malloc failed");
 		exit(EXIT_FAILURE);
 	}
@@ -27,5 +29,6 @@ char **split_buffer(char *buffer, int buffsize)
 		token = strtok(NULL, "\n");
 	}
 	tokens[i] = NULL;
+	free(token);
 	return (tokens);
 }
