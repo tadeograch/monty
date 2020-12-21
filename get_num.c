@@ -1,7 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "monty.h"
-
+/**
+* get_num - gets numbers from a string
+* @code: the string
+* Return: a new string with the number
+*/
 char *get_num(char *code)
 {
 	char *tmp = malloc(sizeof(char) * 6);
@@ -23,5 +27,5 @@ char *get_num(char *code)
 		j++;
 	}
 	tmp[j] = '\0';
-	return(tmp);
+	return (tmp);
 }

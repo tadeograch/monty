@@ -1,5 +1,3 @@
-#include <stdlib.h>
-#include <string.h>
 #include <stdio.h>
 #include "monty.h"
 
@@ -9,9 +7,9 @@
  *
  * Return: the number of nodes.
  */
-size_t print_dlistint(const stack_t *h)
+unsigned int print_dlistint(const stack_t *h)
 {
-	int n = 0;
+	unsigned int n = 0;
 
 	while (h)
 	{
@@ -20,4 +18,22 @@ size_t print_dlistint(const stack_t *h)
 		h = h->next;
 	}
 	return (n);
+}
+
+/**
+ * _strlen - len of a string 
+ * @s: int
+ * Return: the len
+ */
+unsigned int _strlen(char *s)
+{
+	unsigned int n, len;
+
+	n = len = 0;
+	while (*(s + n) != '\0')
+	{
+		n++;
+		len++;
+	}
+	return (len);
 }

@@ -2,6 +2,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/**
+ * push_func - pushes an element to the stack
+ * @stack: the stack
+ * @line_number: number of the line
+ * Return: Nothing
+ */
 void push_func(stack_t **stack, unsigned int line_number)
 {
 	int n;

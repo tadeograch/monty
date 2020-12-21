@@ -1,11 +1,13 @@
-#include <string.h>
 #include <stdio.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
 #include <stdlib.h>
+#include <string.h>
 #include "monty.h"
-
+/**
+* split_buffer - splits a buffer, delimiter: '\n'
+* @buffer: buffer to split
+* @buffsize: size of the buffer
+* Return: the new splited buffer
+*/
 char **split_buffer(char *buffer, int buffsize)
 {
 	char **tokens = malloc(buffsize * sizeof(char *));

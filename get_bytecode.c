@@ -6,7 +6,11 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "monty.h"
-
+/**
+* get_bytecode - gets the code from the file
+* @filename: name of the file
+* Return: a double pointer with the code
+*/
 char **get_bytecode(char *filename)
 {
 	int count;

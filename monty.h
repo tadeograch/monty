@@ -1,10 +1,6 @@
 #ifndef MONTY_H
 #define MONTY_H
-#include <string.h>
-#include <stdio.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
+
 extern char **code;
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -42,7 +38,8 @@ void analize(stack_t **stack);
 char *get_num(char *code);
 void push_func(stack_t **stack, unsigned int line_number);
 void pall_func(stack_t **stack, unsigned int line_number);
-size_t print_dlistint(const stack_t *h);/*Aux function*/
+unsigned int print_dlistint(const stack_t *h);/*Aux function*/
+unsigned int _strlen(char *s); /*Aux function*/
 int compare(char *str1, char *str2);
 
 #endif
