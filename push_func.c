@@ -20,7 +20,7 @@ void push_func(stack_t **stack, unsigned int line_number)
 	}
 	if (num == NULL)
 	{
-		printf("L%d: usage: push integer", (line_number + 1));
+		printf("L%d: usage: push integer\n", (line_number + 1));
 		exit(EXIT_FAILURE);
 	}
 	n = atoi(num);

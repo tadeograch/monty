@@ -11,13 +11,16 @@ char *get_num(char *code)
 	char *tmp = malloc(sizeof(char) * 6);
 	int i, j = 0;
 
-/*error de malloc*/
+	if (tmp == NULL)
+	{
+		printf("Error: malloc failed");
+		exit(EXIT_FAILURE);
+	}
 	for (i = 0; (code[i] < '0' || code[i] > '9') && code[i] != '\0'; i++)
 	{
 	}
 	if (code[i] == '\0')
 	{
-		printf("no number\n");
 		return (NULL);
 	}
 	while (code[i] >= '0' && code[i] <= '9')

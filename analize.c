@@ -27,5 +27,10 @@ void analize(stack_t **stack)
 				break;
 			}
 		}
+		if (type[type_i].opcode == NULL)
+		{
+			printf("L%d: unknown instruction %s\n", (code_i + 1), code[code_i]);
+			exit(EXIT_FAILURE);
+		}
 	}
 }

@@ -21,7 +21,7 @@ unsigned int print_dlistint(const stack_t *h)
 }
 
 /**
- * _strlen - len of a string 
+ * _strlen - len of a string
  * @s: int
  * Return: the len
  */

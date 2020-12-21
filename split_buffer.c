@@ -14,7 +14,7 @@ char **split_buffer(char *buffer, int buffsize)
 	char *token;
 	int i = 0;
 
-	if (!tokens)
+	if (tokens == NULL)
 	{
 		printf("Error: malloc failed");
 		exit(EXIT_FAILURE);
