@@ -6,12 +6,29 @@ void push_func(stack_t **stack, unsigned int line_number)
 {
 	int n;
 	char *num = get_num(code[line_number]);
+	stack_t *new = malloc(sizeof(stack_t));
 
+	if (!new)
+	{
+		return;
+	}
 	if (num == NULL)
 	{
-		printf("L%d: usage: push integer", line_number);
+		printf("L%d: usage: push integer", (line_number + 1));
 		exit(EXIT_FAILURE);
 	}
 	n = atoi(num);
-	add_dnodeint(stack, n);
+	new->n = n;
+	new->prev = NULL;
+	if (!*stack)
+	{
+		new->next = NULL;
+		*stack = new;
+	}
+	else
+	{
+		new->next = *stack;
+		(*stack)->prev = new;
+		*stack = new;
+	}
 }

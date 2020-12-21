@@ -8,13 +8,14 @@
 
 int main(int argc, char **argv)
 {	
-	stack_t **stack = NULL;
+	stack_t *stack = NULL;
+
 	if (argc != 2)
 	{
 		printf("USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 	code = get_bytecode(argv[1]);
-	analize(stack);
+	analize(&stack);
 	return (0);
 }

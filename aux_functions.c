@@ -2,41 +2,6 @@
 #include <string.h>
 #include <stdio.h>
 #include "monty.h"
-/**
- * add_dnodeint - add node at the beginning
- * @head: head of the list
- * @n: n of the node
- * Return: address of the new node
- */
-stack_t *add_dnodeint(stack_t **head, const int n)
-{
-	stack_t *new;
-
-	new = malloc(sizeof(stack_t));
-	if (!new)
-	{
-		return (NULL);
-	}
-	new->n = n;
-	new->prev = NULL;
-	if (!head)
-	{
-		printf("Llegue ?¿\n");
-		new->next = NULL;
-		*head = new;
-		printf(" :%d", new->n);
-		printf("Llegue ?\n");
-	}
-	else
-	{
-		printf("Llegue xd\n");
-		new->next = *head;
-		(*head)->prev = new;
-		*head = new;
-	}
-	printf("Llegue ??\n");
-	return (new);
-}
 
 /**
  * print_dlistint - prints all the elements of a size_t list

@@ -40,9 +40,9 @@ char **split_buffer(char *buffer, int buffsize);
 int file_char_count(char *filename);
 void analize(stack_t **stack);
 char *get_num(char *code);
-stack_t *add_dnodeint(stack_t **head, const int n);/*Aux function*/
 void push_func(stack_t **stack, unsigned int line_number);
 void pall_func(stack_t **stack, unsigned int line_number);
 size_t print_dlistint(const stack_t *h);/*Aux function*/
+int compare(char *str1, char *str2);
 
 #endif

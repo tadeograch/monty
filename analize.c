@@ -4,38 +4,29 @@
 
 void analize(stack_t **stack)
 {
-	int code_i, code_j;
-        int type_i = 0, type_j = 0;
-        unsigned int cmp;
+	int code_i;
+	
+        int type_i;
 	instruction_t type[] = {
                 {"push", push_func},
                 {"pall", pall_func},
-		/*{"pint", pint_func},
+				/*{"pint", pint_func},
                 {"pop", pop_func},
                 {"swap", swap_func},
                 {"add", add_func},
                 {"nop", nop_func},*/
                 {NULL, NULL}
 	};
-
-	for (code_i = 0; code[code_i] != NULL && type[type_i].opcode != NULL; code_i++)
+	(void)stack;
+	for (code_i = 0; code[code_i] != NULL; code_i++)/*Recorro el codigo*/
 	{
-		for(code_j = 0; code[code_i][code_j] != '\0'; code_j++)
+		for (type_i = 0; type[type_i].opcode != NULL; type_i++)/*Recorro type*/
 		{
-			if (code[code_i][code_j] == ' ')
-				continue;
+			if(compare(code[code_i], type[type_i].opcode) == 1)
+			{
+				type[type_i].f(stack, code_i);
+				break;
+			}
 		}
-		for (cmp = 0; code[code_i][code_j] == type[type_i].opcode[type_j]; cmp++)
-		{
-			code_j++;
-			type_j++;
-		}
-		if (cmp == strlen(type[type_i].opcode - 1))
-		{
-			printf("Llegue \n");
-			type[type_i].f(stack, code_i);
-		}
-		type_i++;
-		type_j = 0;
 	}
 }
