@@ -32,9 +32,23 @@ int get_bytecode(char *filename)
 		split_buffer(line);
 		if (code[0] == NULL)
 			continue;
-    	analize(&stack, line_number);
+		if (strcmp(code[0], "push") == 0 && code[1] == NULL)
+		{
+			printf("L%d: usage: push integer\n", (line_number + 1));
+			free(line);
+			free_dlistint(stack);
+			fclose(fp);
+			exit(EXIT_FAILURE);
+		}
+    	if (analize(&stack, line_number) == 0)
+		{
+			printf("L%d: unknown instruction %s\n", line_number, code[0]);
+			free(line);
+			free_dlistint(stack);
+			fclose(fp);
+			exit(EXIT_FAILURE);
+		}
 	}
-
     free(line);
 	free_dlistint(stack);
 	fclose(fp);

@@ -18,6 +18,7 @@ void split_buffer(char *buffer)
 	if (token == NULL)
 	{
 		code[0] = NULL;
+		code[1] = NULL;
 		return;
 	}
 	while (token != NULL && i < 2)
@@ -27,5 +28,5 @@ void split_buffer(char *buffer)
 		token = strtok(NULL, " \n\t");
 	}
 	code[0] = tokens[0];
-	code[1] = tokens[1];
+	code[1] =tokens[1];
 }

@@ -14,7 +14,6 @@ int main(int argc, char **argv)
 		printf("USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	code[1] = code[2] = NULL;
 	get_bytecode(argv[1]);
 	return (0);
 }

@@ -34,7 +34,7 @@ typedef struct instruction_s
 int get_bytecode(char *filename);
 void split_buffer(char *buffer);
 int file_char_count(char *filename);
-void analize(stack_t **stack, unsigned int line_number);
+int analize(stack_t **stack, unsigned int line_number);
 int get_num(unsigned int line_number);
 void push_func(stack_t **stack, unsigned int line_number);
 void pall_func(stack_t **stack, unsigned int line_number);

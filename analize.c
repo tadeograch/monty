@@ -6,9 +6,9 @@
 /**
 * analize - analize the code
 * @stack: the stack
-* Return: Nothing
+* Return: 0 on failure, else 1
 */
-void analize(stack_t **stack , unsigned int line_number)
+int analize(stack_t **stack , unsigned int line_number)
 {
 	int type_i;
 	instruction_t type[] = {
@@ -32,7 +32,7 @@ void analize(stack_t **stack , unsigned int line_number)
 	}
 	if (type[type_i].opcode == NULL)
 	{
-		printf("L%d: unknown instruction %s\n", line_number, code[0]);
-		exit(EXIT_FAILURE);
+		return (0);
 	}
+	return (1);
 }
