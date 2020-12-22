@@ -13,7 +13,7 @@ void push_func(stack_t **stack, unsigned int line_number)
 	int n;
 	stack_t *new = malloc(sizeof(stack_t));
 	(void)line_number;
-	
+
 	if (!new)
 	{
 		free(new);

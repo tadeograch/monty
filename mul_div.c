@@ -3,21 +3,21 @@
 #include <stdio.h>
 
 /**
- * sub_func -  removes the top element of the stack.
+ * mul_func -  multiplies the top element of the stack.
  * @stack: the stack
  * @line_number: number of the line
  * Return: Nothing
  */
 void mul_func(stack_t **stack, unsigned int line_number)
 {
-    stack_t *aux;
+	stack_t *aux;
 
-    if (dlistint_len(*stack) < 2)
-    {
-        printf("L%d: can't add, stack too short\n", line_number);
-        exit(EXIT_FAILURE);
-    }
-    aux = (*stack)->next;
-    aux->n = (*stack)->n * aux->n;
-    pop_func(stack, line_number);
+	if (dlistint_len(*stack) < 2)
+	{
+		printf("L%d: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	aux = (*stack)->next;
+	aux->n = (*stack)->n * aux->n;
+	pop_func(stack, line_number);
 }

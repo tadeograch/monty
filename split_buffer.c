@@ -5,8 +5,7 @@
 /**
 * split_buffer - splits a buffer, delimiter: '\n'
 * @buffer: buffer to split
-* @buffsize: size of the buffer
-* Return: the new splited buffer
+* Return: Nothing
 */
 void split_buffer(char *buffer)
 {
@@ -28,5 +27,5 @@ void split_buffer(char *buffer)
 		token = strtok(NULL, " \n\t");
 	}
 	code[0] = tokens[0];
-	code[1] =tokens[1];
+	code[1] = tokens[1];
 }

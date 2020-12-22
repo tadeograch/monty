@@ -14,19 +14,19 @@
 int get_bytecode(char *filename)
 {
 	FILE *fp;
-    char *line = NULL;
+	char *line = NULL;
 	unsigned int line_number = 0;
-    size_t len = 0;
-    ssize_t read;
+	size_t len = 0;
+	ssize_t read;
 	stack_t *stack = NULL;
-	
+
 	fp = fopen(filename, "r");
-    if (fp == NULL)
+	if (fp == NULL)
 	{
 		printf("Error: Can't open file %s\n", filename);
-    	exit(EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
-	while ((read = getline(&line, &len, fp)) != -1) 
+	while ((read = getline(&line, &len, fp)) != -1)
 	{
 		line_number++;
 		split_buffer(line);
@@ -40,7 +40,7 @@ int get_bytecode(char *filename)
 			fclose(fp);
 			exit(EXIT_FAILURE);
 		}
-    	if (analize(&stack, line_number) == 0)
+		if (analize(&stack, line_number) == 0)
 		{
 			printf("L%d: unknown instruction %s\n", line_number, code[0]);
 			free_dlistint(stack);
@@ -49,7 +49,7 @@ int get_bytecode(char *filename)
 			exit(EXIT_FAILURE);
 		}
 	}
-    free(line);
+	free(line);
 	free_dlistint(stack);
 	fclose(fp);
 	return (0);

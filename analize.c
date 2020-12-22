@@ -6,9 +6,10 @@
 /**
 * analize - analize the code
 * @stack: the stack
+* @line_number: number of the line
 * Return: 0 on failure, else 1
-*/
-int analize(stack_t **stack , unsigned int line_number)
+**/
+int analize(stack_t **stack, unsigned int line_number)
 {
 	int type_i;
 	instruction_t type[] = {
