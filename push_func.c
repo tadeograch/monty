@@ -11,11 +11,12 @@
 void push_func(stack_t **stack, unsigned int line_number)
 {
 	int n;
-	char *num = get_num(code[line_number]);
+	char *num = get_num(code);
 	stack_t *new = malloc(sizeof(stack_t));
 
 	if (!new)
 	{
+		free(new);
 		return;
 	}
 	if (num == NULL)

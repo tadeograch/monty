@@ -11,29 +11,30 @@
 * @filename: name of the file
 * Return: a double pointer with the code
 */
-char **get_bytecode(char *filename)
+int get_bytecode(char *filename)
 {
-	int count;
-	int fd;
-	char *buffer = NULL;
-	char **splited_code = NULL; /* variable for the splited buffer*/
+	FILE *fp;
+    char *line = NULL;
+	unsigned int line_number = 0;
+    size_t len = 0;
+    ssize_t read;
+	stack_t *stack = NULL;
+	
+	fp = fopen(filename, "r");
+    if (fp == NULL)
+	{
+		printf("Error: Can't open file %s", filename);
+    	exit(EXIT_FAILURE);
+	}
+	while ((read = getline(&line, &len, fp)) != -1) 
+	{
+		line_number++;
+		code = line;
+    	analize(&stack, line_number);
+	}
 
-	fd = open(filename, O_RDONLY);
-	if (fd == -1)
-	{
-		printf("Error: Can't open file %s\n", filename);
-		exit(EXIT_FAILURE);
-	}
-	count = file_char_count(filename);
-	buffer = malloc(sizeof(char) * count);
-	if (buffer == NULL)
-	{
-		printf("Error: malloc failed");
-		exit(EXIT_FAILURE);
-	}
-	read(fd, buffer, count);
-	printf("buffer: %s\n", buffer);
-	close(fd);
-	splited_code = split_buffer(buffer, count);
-	return (splited_code);
+    free(line);
+	free_dlistint(stack);
+	fclose(fp);
+	return (0);
 }

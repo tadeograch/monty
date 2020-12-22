@@ -7,9 +7,8 @@
 * @stack: the stack
 * Return: Nothing
 */
-void analize(stack_t **stack)
+void analize(stack_t **stack , unsigned int line_number)
 {
-	int code_i;
 	int type_i;
 	instruction_t type[] = {
 				{"push", push_func},
@@ -21,21 +20,18 @@ void analize(stack_t **stack)
 				{"nop", nop_func},
 				{NULL, NULL}
 	};
-	(void)stack;
-	for (code_i = 0; code[code_i] != NULL; code_i++)/*Recorro el codigo*/
+
+	for (type_i = 0; type[type_i].opcode != NULL; type_i++)/*Recorro type*/
 	{
-		for (type_i = 0; type[type_i].opcode != NULL; type_i++)/*Recorro type*/
+		if (compare(code, type[type_i].opcode) == 1)
 		{
-			if (compare(code[code_i], type[type_i].opcode) == 1)
-			{
-				type[type_i].f(stack, code_i);
-				break;
-			}
+			type[type_i].f(stack, line_number);
+			break;
 		}
-		if (type[type_i].opcode == NULL)
-		{
-			printf("L%d: unknown instruction %s\n", (code_i + 1), code[code_i]);
-			exit(EXIT_FAILURE);
-		}
+	}
+	if (type[type_i].opcode == NULL)
+	{
+		printf("L%d: unknown instruction %s\n", line_number, code);
+		exit(EXIT_FAILURE);
 	}
 }

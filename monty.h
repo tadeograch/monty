@@ -1,7 +1,7 @@
 #ifndef MONTY_H
 #define MONTY_H
 
-extern char **code;
+extern char *code;
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -31,10 +31,10 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-char **get_bytecode(char *filename);
+int get_bytecode(char *filename);
 char **split_buffer(char *buffer, int buffsize);
 int file_char_count(char *filename);
-void analize(stack_t **stack);
+void analize(stack_t **stack, unsigned int line_number);
 char *get_num(char *code);
 void push_func(stack_t **stack, unsigned int line_number);
 void pall_func(stack_t **stack, unsigned int line_number);
