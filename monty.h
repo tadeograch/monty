@@ -48,4 +48,5 @@ void swap_func(stack_t **stack, unsigned int line_number);
 void add_func(stack_t **stack, unsigned int line_number);
 void nop_func(stack_t **stack, unsigned int line_number);
 void free_dlistint(stack_t *head);
+int check_number(char *token);
 #endif

@@ -9,24 +9,19 @@
 */
 int get_num(unsigned int line_number)
 {
-	unsigned int i;
 	int tmp = 0;
 
-	printf("code1: %s\n", code[1]);
 	if (code[1] == NULL)
 	{
 		printf("L%d: usage: push integer\n", (line_number + 1));
 		exit(EXIT_FAILURE);
 	}
-	while ((code[1][i] >= '0' && code[1][i] <= '9') || code[1][i] == '-')
-	{
-		i++;
-	}
-	if (strlen(code[1]) != i)
+	
+	if (check_number(code[1]) == 1)
 	{
 		printf("L%d: usage: push integer\n", (line_number + 1));
 		exit(EXIT_FAILURE);
 	}
-	tmp = atoi(code[i]);
+	tmp = atoi(code[1]);
 	return (tmp);
 }
