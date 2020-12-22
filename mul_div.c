@@ -14,7 +14,7 @@ void mul_func(stack_t **stack, unsigned int line_number)
 
     if (dlistint_len(*stack) < 2)
     {
-        printf("L%d: can't add, stack too short\n", line_number - 1);
+        printf("L%d: can't add, stack too short\n", line_number);
         exit(EXIT_FAILURE);
     }
     aux = (*stack)->next;
