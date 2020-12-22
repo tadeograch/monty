@@ -49,4 +49,8 @@ void add_func(stack_t **stack, unsigned int line_number);
 void nop_func(stack_t **stack, unsigned int line_number);
 void free_dlistint(stack_t *head);
 int check_number(char *token);
+void mod_func(stack_t **stack, unsigned int line_number);
+void mul_func(stack_t **stack, unsigned int line_number);
+void div_func(stack_t **stack, unsigned int line_number);
+void sub_func(stack_t **stack, unsigned int line_number);
 #endif

@@ -8,7 +8,7 @@
  * @line_number: number of the line
  * Return: Nothing
  */
-void sub_func(stack_t **stack, unsigned int line_number)
+void mod_func(stack_t **stack, unsigned int line_number)
 {
     stack_t *aux;
 
