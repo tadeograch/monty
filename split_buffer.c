@@ -10,10 +10,10 @@
 */
 void split_buffer(char *buffer)
 {
-	char *tokens[2];
+	char *tokens[2] = {NULL, NULL};
 	char *token = NULL;
 	int i = 0;
-	
+
 	token = strtok(buffer, " \n\t");
 	if (token == NULL)
 	{

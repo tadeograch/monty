@@ -43,8 +43,8 @@ int get_bytecode(char *filename)
     	if (analize(&stack, line_number) == 0)
 		{
 			printf("L%d: unknown instruction %s\n", line_number, code[0]);
-			free(line);
 			free_dlistint(stack);
+			free(line);
 			fclose(fp);
 			exit(EXIT_FAILURE);
 		}
