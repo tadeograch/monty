@@ -1,34 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "monty.h"
 /**
 * get_num - gets numbers from a string
 * @code: the string
 * Return: a new string with the number
 */
-char *get_num(char *code)
+int get_num(unsigned int line_number)
 {
-	char *tmp = malloc(sizeof(char) * 6);
-	int i, j = 0;
+	unsigned int i;
+	int tmp = 0;
 
-	if (tmp == NULL)
+	printf("code1: %s\n", code[1]);
+	if (code[1] == NULL)
 	{
-		printf("Error: malloc failed");
+		printf("L%d: usage: push integer\n", (line_number + 1));
 		exit(EXIT_FAILURE);
 	}
-	for (i = 0; (code[i] < '0' || code[i] > '9') && code[i] != '\0'; i++)
+	while ((code[1][i] >= '0' && code[1][i] <= '9') || code[1][i] == '-')
 	{
-	}
-	if (code[i] == '\0')
-	{
-		return (NULL);
-	}
-	while (code[i] >= '0' && code[i] <= '9')
-	{
-		tmp[j] = code[i];
 		i++;
-		j++;
 	}
-	tmp[j] = '\0';
+	if (strlen(code[1]) != i)
+	{
+		printf("L%d: usage: push integer\n", (line_number + 1));
+		exit(EXIT_FAILURE);
+	}
+	tmp = atoi(code[i]);
 	return (tmp);
 }

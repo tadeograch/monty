@@ -8,27 +8,24 @@
 * @buffsize: size of the buffer
 * Return: the new splited buffer
 */
-char **split_buffer(char *buffer, int buffsize)
+void split_buffer(char *buffer)
 {
-	char **tokens = NULL;
+	char *tokens[2];
 	char *token = NULL;
 	int i = 0;
-
-	tokens = malloc(sizeof(char *) * buffsize);
-	if (!tokens)
+	
+	token = strtok(buffer, " \n\t");
+	if (token == NULL)
 	{
-		free(tokens);
-		printf("Error: malloc failed");
-		exit(EXIT_FAILURE);
+		code[0] = NULL;
+		return;
 	}
-	token = strtok(buffer, "\n");
-	while (token != NULL)
+	while (token != NULL && i < 2)
 	{
 		tokens[i] = token;
 		i++;
-		token = strtok(NULL, "\n");
+		token = strtok(NULL, " \n\t");
 	}
-	tokens[i] = NULL;
-	free(token);
-	return (tokens);
+	code[0] = tokens[0];
+	code[1] = tokens[1];
 }

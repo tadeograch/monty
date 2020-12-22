@@ -11,7 +11,6 @@
 void push_func(stack_t **stack, unsigned int line_number)
 {
 	int n;
-	char *num = get_num(code);
 	stack_t *new = malloc(sizeof(stack_t));
 
 	if (!new)
@@ -19,12 +18,7 @@ void push_func(stack_t **stack, unsigned int line_number)
 		free(new);
 		return;
 	}
-	if (num == NULL)
-	{
-		printf("L%d: usage: push integer\n", (line_number + 1));
-		exit(EXIT_FAILURE);
-	}
-	n = atoi(num);
+	n = get_num(line_number);
 	new->n = n;
 	new->prev = NULL;
 	if (!*stack)
@@ -38,5 +32,4 @@ void push_func(stack_t **stack, unsigned int line_number)
 		(*stack)->prev = new;
 		*stack = new;
 	}
-	free(num);
 }

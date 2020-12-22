@@ -29,7 +29,9 @@ int get_bytecode(char *filename)
 	while ((read = getline(&line, &len, fp)) != -1) 
 	{
 		line_number++;
-		code = line;
+		split_buffer(line);
+		if (code[0] == NULL)
+			continue;
     	analize(&stack, line_number);
 	}
 

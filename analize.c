@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "monty.h"
 
 /**
@@ -23,7 +24,7 @@ void analize(stack_t **stack , unsigned int line_number)
 
 	for (type_i = 0; type[type_i].opcode != NULL; type_i++)/*Recorro type*/
 	{
-		if (compare(code, type[type_i].opcode) == 1)
+		if (strcmp(code[0], type[type_i].opcode) == 0)
 		{
 			type[type_i].f(stack, line_number);
 			break;
@@ -31,7 +32,7 @@ void analize(stack_t **stack , unsigned int line_number)
 	}
 	if (type[type_i].opcode == NULL)
 	{
-		printf("L%d: unknown instruction %s\n", line_number, code);
+		printf("L%d: unknown instruction %s\n", line_number, code[0]);
 		exit(EXIT_FAILURE);
 	}
 }
