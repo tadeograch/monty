@@ -32,7 +32,7 @@ int get_bytecode(char *filename)
 		split_buffer(line);
 		if (code[0] == NULL)
 			continue;
-		if (strcmp(code[0], "push") == 0 && code[1] == NULL)
+		if (strcmp(code[0], "push") == 0 && check_number(code[1]) == 1)
 		{
 			printf("L%d: usage: push integer\n", (line_number + 1));
 			free(line);
